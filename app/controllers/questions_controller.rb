@@ -12,12 +12,21 @@ class QuestionsController < ApplicationController
     if @question.save
       redirect_to questions_path
     else
-      render :new, status: :unprocessable_entity
+      render :edit, status: :unprocessable_entity
     end
   end
 
   def edit
     @question = Question.find_by id: params[:id]
+  end
+
+  def update
+    @question = Question.find_by id: params[:id]
+    if @question.update question_params
+      redirect_to questions_path
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   private
