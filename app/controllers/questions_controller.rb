@@ -3,6 +3,13 @@ class QuestionsController < ApplicationController
     @questions = Question.all
   end
 
+  def show
+    @question = Question.find_by id: params[:id]
+    return unless @question.nil?
+
+    redirect_to questions_path
+  end
+
   def new
     @question = Question.new
   end
@@ -27,6 +34,12 @@ class QuestionsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @question = Question.find_by id: params[:id]
+    @question.destroy
+    redirect_to question_path
   end
 
   private

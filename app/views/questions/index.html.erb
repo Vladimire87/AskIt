@@ -6,5 +6,7 @@
   <p>
     <%= q.body %>
   </p>
-  <%= link_to 'Edit', edit_question_path(q) %>
+  <%= link_to 'Show', question_path(q) %> |
+  <%= link_to 'Edit', edit_question_path(q) %> |
+  <%= button_to 'Destoy',  question_path(q), method: :delete, data:{turbo_confirm: "Are you sure?"} %>
 <% end %>
