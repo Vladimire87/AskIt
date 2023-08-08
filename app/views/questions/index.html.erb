@@ -1,0 +1,9 @@
+<% @questions.each do |q| %>
+  <h2><%= q.title %></h2>
+  <time datetime="<%= q.formatted_created_at %>">
+    <%= q.formatted_created_at %>
+  </time>
+  <p>
+    <%= q.body %>
+  </p>
+<% end %>

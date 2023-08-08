@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
-  get 'qustions/index'
+  get "/questions", to: "questions#index"
+
   root "pages#index"
 end
