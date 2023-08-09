@@ -1,6 +1,7 @@
 <h1 class="mb-4">Question</h1>
+<%= link_to 'New Question', new_question_path, class: 'btn btn-light btn-lg' %>
 <% @questions.each do |q| %>
-  <article class="card">
+  <article class="card mt-3">
     <div class="card-body">
       <h4><%= q.title %></h4>
       <selection class="card-text">
