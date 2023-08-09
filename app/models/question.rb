@@ -1,4 +1,6 @@
 class Question < ApplicationRecord
+  has_many :answers
+
   validates :title, :body, presence: true
 
   def formatted_created_at
