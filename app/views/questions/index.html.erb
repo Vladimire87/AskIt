@@ -1,12 +1,28 @@
+<h1 class="mb-4">Question</h1>
 <% @questions.each do |q| %>
-  <h2><%= q.title %></h2>
-  <time datetime="<%= q.formatted_created_at %>">
-    <%= q.formatted_created_at %>
-  </time>
-  <p>
-    <%= q.body %>
-  </p>
-  <%= link_to 'Show', question_path(q) %> |
-  <%= link_to 'Edit', edit_question_path(q) %> |
-  <%= button_to 'Destoy',  question_path(q), method: :delete, data:{turbo_confirm: "Are you sure?"} %>
+  <article class="card">
+    <div class="card-body">
+      <h4><%= q.title %></h4>
+      <selection class="card-text">
+        <small>
+          <time datetime="<%= q.formatted_created_at %>">
+            <%= q.formatted_created_at %>
+          </time>
+        </small>
+        <p class="my-2">
+          <%= q.body %>
+        </p>
+      </selection>
+      <div class="d-flex justify-content-between">
+        <div class="d-flex gap-2">
+          <%= link_to 'Show', question_path(q), class: 'btn btn-primary' %>
+          <%= link_to 'Edit', edit_question_path(q), class: 'btn btn-secondary' %>
+        </div>
+        <div>
+          <%= button_to 'Destoy',  question_path(q), class: 'btn btn-danger',
+        method: :delete, data:{turbo_confirm: "Are you sure?"} %>
+        </div>
+      </div>
+    </div>
+  </article>
 <% end %>
