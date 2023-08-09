@@ -50,6 +50,6 @@ class QuestionsController < ApplicationController
   end
 
   def set_question
-    @question = Question.find_by id: params[:id]
+    @question = Question.find params[:id]
   end
 end
