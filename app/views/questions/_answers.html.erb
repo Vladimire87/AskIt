@@ -1,0 +1,16 @@
+<hr class="my-3">
+<h3>Answers</h3>
+<% @answers.each do |a| %>
+  <article class="mb-3">
+    <small>
+      <time datetime="<%= a.formatted_created_at %>">
+        <%= a.formatted_created_at %>
+      </time>
+    </small>
+    <p>
+      - <%= a.body %>
+    </p>
+    <%= button_to 'Delete', question_answer_path(@question, a), class: 'btn btn-danger btn-sm',
+      method: :delete, data: { turbo_confirm: "Are you sure?" } %>
+  </article>
+<% end %>
