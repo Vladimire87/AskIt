@@ -2,7 +2,7 @@ class QuestionsController < ApplicationController
   before_action :set_question!, only: %i[show destroy edit update]
 
   def index
-    @questions = Question.all
+    @questions = Question.order created_at: :desc
   end
 
   def show
@@ -24,7 +24,7 @@ class QuestionsController < ApplicationController
       flash[:success] = "Question created!"
       redirect_to questions_path
     else
-      render :edit, status: :unprocessable_entity
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -36,7 +36,7 @@ class QuestionsController < ApplicationController
       flash[:success] = "Question updated!"
       redirect_to questions_path
     else
-      render :new, status: :unprocessable_entity
+      render :edit, status: :unprocessable_entity
     end
   end
 
