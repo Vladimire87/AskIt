@@ -1,0 +1,16 @@
+<hr class="my-3">
+<div class="mt-3">
+  <h3>Write your Answer</h3>
+  <%= render 'shared/errors', object: @answer %>
+  <%= form_with model: [@question, @answer], data: { turbo: false} do |f| %>
+    <div class="mb-3 row">
+      <div class="col-sm-2 col-form-label">
+        <%= f.label :body %>
+      </div>
+      <div class="col-sm-10">
+        <%= f.text_area :body, class: "form-control" %>
+      </div>
+    </div>
+    <%= f.submit class: "btn btn-primary" %>
+  <% end %>
+</div>
