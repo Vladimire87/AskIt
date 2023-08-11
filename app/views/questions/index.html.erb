@@ -13,7 +13,7 @@
           </time>
         </small>
         <p class="my-2">
-          <%= truncate strip_tags(q.body), length: 150 %>
+          <%= truncate strip_tags(q.body), length: 150, omission: ' ... (continued)' %>
         </p>
       </selection>
       <div class="d-flex justify-content-between">
