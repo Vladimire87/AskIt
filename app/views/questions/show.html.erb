@@ -3,4 +3,5 @@
 <%= render 'answers/form' %>
 <hr class="my-3">
 <h3 class="mt-5">Answers</h3>
-<%= render @answers %>
+<%= render partial: 'answers/answer', collection: @answers,
+  as: :answer, locals: {question: @question } %>
