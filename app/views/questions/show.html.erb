@@ -1,4 +1,6 @@
 <% currently_at "Questions" %>
 <%= render 'questions/question' %>
 <%= render 'answers/form' %>
-<%= render 'questions/answers' %>
+<hr class="my-3">
+<h3 class="mt-5">Answers</h3>
+<%= render @answers %>
