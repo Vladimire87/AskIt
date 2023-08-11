@@ -71,4 +71,4 @@ gem "font-awesome-sass", "~> 6.4.2"
 
 gem "faker"
 
-gem 'kaminari'
+gem "pagy"
