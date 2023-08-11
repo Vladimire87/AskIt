@@ -68,3 +68,5 @@ end
 gem "erb_lint"
 
 gem "font-awesome-sass", "~> 6.4.2"
+
+gem "faker"
