@@ -72,3 +72,5 @@ gem "font-awesome-sass", "~> 6.4.2"
 gem "faker"
 
 gem "pagy"
+
+gem "draper"
