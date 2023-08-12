@@ -2,7 +2,7 @@
 <%= render 'questions/question' %>
 <%= render 'answers/form' %>
 <hr class="my-3">
-<h3 class="mt-5">Answers</h3>
-<%== pagy_bootstrap_nav @pagy %>
+<h3 class="mt-5 mb-3">Answers</h3>
+<%== pagy_bootstrap_nav (@pagy) if @pagy.page > 1 %>
 <%= render partial: 'answers/answer', collection: @answers,
   as: :answer, locals: {question: @question } %>
