@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AnswersController < ApplicationController
   include ActionView::RecordIdentifier
 
@@ -8,20 +10,19 @@ class AnswersController < ApplicationController
     @answer = @question.answers.build answer_params
 
     if @answer.save
-      flash[:success] = "Answer created!"
+      flash[:success] = 'Answer created!'
       redirect_to question_path(@question)
     else
       @pagy, @answers = pagy @question.answers.order(created_at: :desc)
-      render "questions/show"
+      render 'questions/show'
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @answer.update answer_params
-      flash[:success] = "Answer updated!"
+      flash[:success] = 'Answer updated!'
       redirect_to question_path(@question, anchor: dom_id(@answer))
     else
       render :edit, status: :unprocessable_entity
@@ -30,7 +31,7 @@ class AnswersController < ApplicationController
 
   def destroy
     @answer.destroy
-    flash[:success] = "Deleted!"
+    flash[:success] = 'Deleted!'
     redirect_to question_path(@question)
   end
 

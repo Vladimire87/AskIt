@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   resource :session, only: %i[new create destroy]
 
@@ -7,5 +9,5 @@ Rails.application.routes.draw do
     resources :answers, except: %i[new show]
   end
 
-  root "pages#index"
+  root 'pages#index'
 end

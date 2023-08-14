@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
   before_action :require_no_authentication, only: %i[new create]
   before_action :require_authentication, only: %i[edit update]
@@ -19,12 +21,11 @@ class UsersController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @user.update user_params
-      flash[:success] = "Profile updated!"
+      flash[:success] = 'Profile updated!'
       redirect_to root_path
     else
       render :edit, status: :unprocessable_entity
