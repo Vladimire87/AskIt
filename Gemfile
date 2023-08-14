@@ -74,3 +74,5 @@ gem "faker"
 gem "pagy"
 
 gem "draper"
+
+gem "valid_email2"
