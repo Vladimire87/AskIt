@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
       redirect_to root_path
     else
       flash[:warning] = "Incorect email and/or password"
-      redirect_to new_session_path
+      render :new, status: :unprocessable_entity
     end
   end
 
