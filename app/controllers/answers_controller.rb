@@ -6,6 +6,8 @@ class AnswersController < ApplicationController
   before_action :set_question!
   before_action :set_answer!, except: %i[create]
 
+  def edit; end
+
   def create
     @answer = @question.answers.build answer_params
 
@@ -19,8 +21,6 @@ class AnswersController < ApplicationController
       render 'questions/show'
     end
   end
-
-  def edit; end
 
   def update
     if @answer.update answer_params

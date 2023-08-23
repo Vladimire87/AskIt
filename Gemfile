@@ -81,3 +81,9 @@ gem 'pagy'
 gem 'draper'
 
 gem 'valid_email2'
+
+gem 'rubyzip'
+
+gem 'caxlsx'
+
+gem 'caxlsx_rails'

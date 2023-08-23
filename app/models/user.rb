@@ -9,7 +9,7 @@ class User < ApplicationRecord
   validate :correct_old_password, on: :update
   validates :password, confirmation: true, allow_blank: true, length: { minimum: 4, maximum: 70 }
 
-  validates :email, presence: true, "valid_email_2/email": true
+  validates :email, presence: true, 'valid_email_2/email': true
 
   def remember_me
     self.remember_token = SecureRandom.urlsafe_base64
@@ -22,7 +22,7 @@ class User < ApplicationRecord
   end
 
   def remember_token_authenticated?(remember_token)
-    return false unless remember_token_digest.present?
+    return false if remember_token_digest.blank?
 
     BCrypt::Password.new(remember_token_digest).is_password?(remember_token)
   end
@@ -46,6 +46,6 @@ class User < ApplicationRecord
   end
 
   def password_presence
-    errors.add(:password, :blank) unless password_digest.present?
+    errors.add(:password, :blank) if password_digest.blank?
   end
 end
